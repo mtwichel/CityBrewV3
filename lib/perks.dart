@@ -36,7 +36,7 @@ class _PerksPageState extends State <PerksPage> {
     checkGps();
   }
 
-  bool isNear(){
+  isNear(){
     print("${location.location.longitude} | ${location.location.latitude}");
     SnackBar snackBar;
     if((locations[storeNum][1] - location.location.longitude).abs() < .01  && (locations[storeNum][2] - location.location.latitude).abs() < .01){
