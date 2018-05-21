@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocation/geolocation.dart';
 import 'dart:async';
 import 'package:transparent_image/transparent_image.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
@@ -36,15 +37,27 @@ class _PerksPageState extends State <PerksPage> {
     checkGps();
   }
 
-  isNear(){
-    print("${location.location.longitude} | ${location.location.latitude}");
+  checkIn(){
+    print('${location.location.longitude} | ${location.location.latitude}');
     SnackBar snackBar;
-    if((locations[storeNum][1] - location.location.longitude).abs() < .01  && (locations[storeNum][2] - location.location.latitude).abs() < .01){
-      snackBar = new SnackBar(content: new Text('Near'));
+    locations.forEach( (key, value) {
+      if((locations[key][0] - location.location.longitude).abs() < .01  && (locations[key][1] - location.location.latitude).abs() < .01){
+        snackBar = new SnackBar(content: new Text('Near CB$key'));
+      }
+    });
+    if(snackBar == null){
+      Scaffold.of(context).showSnackBar(new SnackBar(content: new Text('Not Near Any City Brews')));
     }else{
-      snackBar = new SnackBar(content: new Text('Not Near'));
+      Scaffold.of(context).showSnackBar(snackBar);
+      // final storeDocRef = Firestore.instance.document('check-ins/key');
+
+      // Firestore.instance.runTransaction((Transaction tx) async {
+      //   DocumentSnapshot postSnapshot = await tx.get(storeDocRef);
+      //   if (postSnapshot.exists) {
+      //     await tx.update(storeDocRef, <String, dynamic>{'marcustwichel': true});
+      //   }
+      // });
     }
-    Scaffold.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -122,7 +135,7 @@ class _PerksPageState extends State <PerksPage> {
         final newLocation = result;
         setState(() {
           location = newLocation;
-          isNear();
+          checkIn();
         });
       });
 

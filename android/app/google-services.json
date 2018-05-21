@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "800384779155",
+    "firebase_url": "https://citybrewv3-da4ac.firebaseio.com",
+    "project_id": "citybrewv3-da4ac",
+    "storage_bucket": "citybrewv3-da4ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800384779155:android:120d7d647de4356d",
+        "android_client_info": {
+          "package_name": "com.marcustwichel.cbmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800384779155-3josq2grqbovnmtd0jevpqceufn8ihtq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr-4MU7PO4VdNb6sEtgrD-IuMx3kCi9mw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
